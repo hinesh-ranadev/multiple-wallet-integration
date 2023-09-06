@@ -1,0 +1,11 @@
+@mixin round-button {
+  background: none;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #f0f1f9;
+  box-shadow: var(--dialog-shadow);
+}
