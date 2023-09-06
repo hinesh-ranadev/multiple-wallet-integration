@@ -46,7 +46,8 @@ const Home = () => {
   const formattedWalletBalance = useMemo(() => {
     if (currentWalletBalance) {
       const balanceEntries = Object.entries(currentWalletBalance);
-      return `${balanceEntries?.at(0)?.at(1)} ${balanceEntries?.at(0)?.at(0)}`;
+      return `${Number(balanceEntries?.[0]?.[1]).toPrecision(4)} 
+       ${balanceEntries?.[0]?.[0]}`;
     }
   }, [currentWalletBalance]);
 
