@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import coinbaseModule from "@web3-onboard/coinbase";
-import injectedModule from "@web3-onboard/injected-wallets";
+import injectedModule, { ProviderLabel } from "@web3-onboard/injected-wallets";
 import { Web3OnboardProvider, init } from "@web3-onboard/react";
 import walletConnectModule from "@web3-onboard/walletconnect";
 import type { AppProps } from "next/app";
@@ -34,7 +34,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const walletConnect = walletConnectModule(wcV2InitOptions);
   const coinbase = coinbaseModule();
-  const injected = injectedModule();
+  const injected = injectedModule({
+    filter: {
+      Coinbase:false
+    }
+  });
 
   const wallets = [injected, coinbase, walletConnect];
 
