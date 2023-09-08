@@ -33,8 +33,8 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   const walletConnect = walletConnectModule(wcV2InitOptions);
-  const injected = injectedModule();
   const coinbase = coinbaseModule();
+  const injected = injectedModule();
 
   const wallets = [injected, coinbase, walletConnect];
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { DisConnectIcon, CloseIcon } from "@/assets/icons";
-import { WalletsType } from "@/constants/Wallets";
+import { WalletType } from "@/constants/index.types";
 
 interface IProps {
   isOpen: boolean;
   closeModal: () => void;
-  wallets: WalletsType[];
+  wallets: WalletType[];
   onConnectWallet: (label: string) => void;
   onDisconnectWallet: (label: string) => void;
 }
@@ -17,14 +17,14 @@ const ConnectWalletModal: React.FC<IProps> = ({
   onConnectWallet,
   onDisconnectWallet,
 }) => {
-  const handleConnectWallet = (wallet: WalletsType) => {
+  const handleConnectWallet = (wallet: WalletType) => {
     if (!wallet?.isConnected) {
       onConnectWallet(wallet?.label);
       closeModal();
     }
   };
 
-  const handleDisconnectWallet = (wallet: WalletsType) => {
+  const handleDisconnectWallet = (wallet: WalletType) => {
     if (wallet?.isConnected) {
       onDisconnectWallet(wallet?.label);
       closeModal();

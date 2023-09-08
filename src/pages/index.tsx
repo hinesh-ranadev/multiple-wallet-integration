@@ -6,7 +6,8 @@ import {
   useWallets,
 } from "@web3-onboard/react";
 import { useEffect, useState, useMemo } from "react";
-import { WalletsType, defaultWallets } from "@/constants/Wallets";
+import { defaultWallets } from "@/constants";
+import { WalletType } from "@/constants/index.types";
 import WalletCard from "@/components/Home/WalletCard";
 import type { WalletState } from "@web3-onboard/core/dist/types";
 import { getShortWalletAddress } from "@/utils";
@@ -16,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [wallets, setWallets] = useState<WalletsType[]>(defaultWallets);
+  const [wallets, setWallets] = useState<WalletType[]>(defaultWallets);
 
   const updateAccountCenter = useAccountCenter();
 
@@ -72,13 +73,19 @@ const Home = () => {
     });
   }, [connectedWallets]);
 
-  const handleConnectWallet = (label: string) => {
-    connect({
-      autoSelect: {
-        label,
-        disableModals: true,
-      },
-    });
+  const handleConnectWallet = async (label: string) => {
+    if (label === "MetaMask" && !window?.ethereum?.isMetaMask) {
+      const METAMASK_REDIRECT_URL = `https://metamask.app.link/dapp/${window?.location?.origin}`;
+
+      window.open(METAMASK_REDIRECT_URL, "__blank");
+    } else {
+      await connect({
+        autoSelect: {
+          label,
+          disableModals: true,
+        },
+      });
+    }
   };
 
   const handleDisconnectWallet = (label: WalletState["label"]) => {

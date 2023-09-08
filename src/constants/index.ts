@@ -1,11 +1,4 @@
-import { CoinbaseIcon, WalletConnectIcon, MetaMaskIcon, IconProps } from "../assets/icons"
-
-export interface WalletsType {
-    isConnected: boolean,
-    label: string,
-    icon: (props: IconProps) => React.ReactElement
-}
-
+import { CoinbaseIcon, WalletConnectIcon, MetaMaskIcon } from "../assets/icons"
 
 export const defaultWallets = [
     {
