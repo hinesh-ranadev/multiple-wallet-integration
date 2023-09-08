@@ -50,11 +50,16 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const theme = "light";
 
+  const connectOptions = {
+    autoConnectAllPreviousWallet : true
+  }
+
   const web3Onboard = init({
     wallets,
     chains,
     appMetadata,
     theme,
+    connect : connectOptions
   });
 
   return (
