@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const wcV2InitOptions = {
     projectId: WALLET_CONNECT_PROJECT_KEY,
     requiredChains: [1, 5, 11155111],
-  ...(typeof window !== 'undefined' ? { dappUrl: window?.location?.origin } : {}),
+  ...(typeof window !== 'undefined' ? { dappUrl: `${window?.location?.origin}/` } : {}),
   };
 
   const walletConnect = walletConnectModule(wcV2InitOptions);

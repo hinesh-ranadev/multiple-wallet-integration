@@ -1,7 +1,7 @@
 import { MutableRefObject } from "react";
 
 export { MetaMaskIcon } from './MetaMask.icon';
-export { CoinbaseIcon } from './Coinbase.icon';
+export { CoinbaseIcon } from './CoinbaseWallet.icon';
 export { WalletConnectIcon } from './WalletConnect.icon';
 export { CloseIcon } from './Close.icon';
 export { DisConnectIcon } from './DisConnect.icon';

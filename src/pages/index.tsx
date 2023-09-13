@@ -79,7 +79,7 @@ const Home = () => {
 
       window.open(METAMASK_REDIRECT_URL, "__blank");
     } else {
-      await connect({
+       connect({
         autoSelect: {
           label,
           disableModals: true,
