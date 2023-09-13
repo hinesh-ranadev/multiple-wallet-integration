@@ -24,12 +24,19 @@ export default function App({ Component, pageProps }: AppProps) {
       label: "Goerli",
       rpcUrl: `https://goerli.infura.io/v3/${INFURA_KEY}`,
     },
+    {
+      id: "0xaa36a7",
+      token: "ETH",
+      label: "Sepolia",
+      rpcUrl: `https://sepolia.infura.io/v3/${INFURA_KEY}`,
+    },
   ];
 
   // wallet connect init
   const wcV2InitOptions = {
     projectId: WALLET_CONNECT_PROJECT_KEY,
-    requiredChains: [1, 5],
+    requiredChains: [1, 5, 11155111],
+  ...(typeof window !== 'undefined' ? { dappUrl: window?.location?.origin } : {}),
   };
 
   const walletConnect = walletConnectModule(wcV2InitOptions);
